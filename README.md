@@ -6,4 +6,4 @@ In this project we will create a Lambda function that fetches resume data stored
 Find a link to the step by step process.
 
 Test the API endpoint by applying the following command 
-'curl -v https://a334k0vzma.execute-api.us-east-1.amazonaws.com/dev/resume`
+`curl -v https://a334k0vzma.execute-api.us-east-1.amazonaws.com/dev/resume`
