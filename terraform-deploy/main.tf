@@ -1,3 +1,7 @@
+
+# Data Source for AWS Region
+data "aws_region" "current" {}
+
 resource "aws_iam_role" "lambda_exec_role" {
   name = "lambda_exec_role"
 
