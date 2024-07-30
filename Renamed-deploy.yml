@@ -1,0 +1,32 @@
+name: deploy to lambda
+on: [push]
+jobs:
+
+  deploy_source:
+    name: deploy lambda from source
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout source code
+        uses: actions/checkout@v3
+      - name: default deploy
+        uses: appleboy/lambda-action@v0.2.0
+        with:
+          aws_access_key_id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_access_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws_region: us-east-1
+          function_name: GetResume
+          source: lambda_function.py
+
+      - name: Initialize Terraform
+        run: terraform init
+        working-directory: terraform-deploy # Set this to the directory where your Terraform files are located
+
+      - name: Apply Terraform
+        run: terraform apply -auto-approve
+        working-directory: terraform-deploy # Set this to the directory where your Terraform files are located
+
+      - name: Output API URL
+        id: output
+        run: |
+          terraform output -json > outputs.json
+          cat outputs.json
