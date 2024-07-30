@@ -23,7 +23,7 @@ jobs:
 
       - name: Apply Terraform
         run: terraform apply -auto-approve
-        working-directory: terraform-deploy# Set this to the directory where your Terraform files are located
+        working-directory: terraform-deploy # Set this to the directory where your Terraform files are located
 
       - name: Output API URL
         id: output
