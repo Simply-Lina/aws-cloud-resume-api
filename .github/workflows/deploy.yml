@@ -16,3 +16,18 @@ jobs:
           aws_region: us-east-1
           function_name: GetResume
           source: lambda_function.py
+
+      - name: Initialize Terraform
+        run: terraform init
+        working-directory: /terraform-deploy # Set this to the directory where your Terraform files are located
+
+      - name: Apply Terraform
+        run: terraform apply -auto-approve
+        working-directory: /terraform-deploy# Set this to the directory where your Terraform files are located
+
+      - name: Output API URL
+        id: output
+        run: |
+          terraform output -json > outputs.json
+          cat outputs.json
+
