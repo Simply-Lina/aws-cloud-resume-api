@@ -9,3 +9,5 @@ Test the API endpoint by applying the following command
 `curl -v https://a334k0vzma.execute-api.us-east-1.amazonaws.com/dev/resume`
 or after Terraform deploy
 `curl -v https://xgf77429x1.execute-api.us-east-1.amazonaws.com/dev/data`
+
+Link to [a write up on same project](https://slina.hashnode.dev/aws-cloud-resume-api-challenge)
