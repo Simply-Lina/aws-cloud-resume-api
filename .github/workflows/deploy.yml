@@ -43,3 +43,8 @@ jobs:
 
       - name: Terraform Apply
         run: terraform apply -auto-approve
+#delete resources
+      - name: Terraform Destroy resources
+        run: terraform destroy --auto-approve
+
+        
